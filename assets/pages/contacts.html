@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalog</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../fonts/stylesheet.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+<header class="header">
+    <div class="header__container">
+        <div class="header__logo"><span class="header__logo-overflow">MY</span>SITE</div>
+        <nav class="header__navbar">
+            <ul class="header__navbar-list">
+                <li class="header__navbar-item">
+                    <a href="../../index.html" class="header__navbar-link">ГЛАВНАЯ</a>
+                </li>
+                <li class="header__navbar-item">
+                    <a href="articles.html" class="header__navbar-link">СТАТЬИ</a>
+                </li>
+                <li class="header__navbar-item">
+                    <a href="catalog.html" class="header__navbar-link">КАТАЛОГ</a>
+                </li>
+                <li class="header__navbar-item">
+                    <a href="gallery.html" class="header__navbar-link">ГАЛЕРЕЯ</a>
+                </li>
+                <li class="header__navbar-item">
+                    <a href="registration.html" class="header__navbar-link">РЕГИСТРАЦИЯ</a>
+                </li>
+                <li class="header__navbar-item">
+                    <a href="contacts.html" class="header__navbar-link header__navbar-link--active">КОНТАКТЫ</a>
+                </li>
+                <li class="header__navbar-item">
+                    <a href="page-nav.html" class="header__navbar-link">НАВИГАЦИЯ</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+</header>
+<main class="main">
+    <div class="h1-container h1-container--bg">
+        <h1 class="h1-container__text h1-container__text--bg">КОНТАКТЫ</h1>
+    </div>
+    <div class="container">
+        <section class="contacts">
+            <div class="contacts__body">
+                <div class="contacts__location">
+                    <div class="contacts__address">
+                        <h2>Адрес</h2>
+                        <p>г. Киев,<br>
+                            вулиця Володимирська, 68 <br>
+                            3 этаж, кабинет 105
+                        </p>
+                    </div>
+                    <div class="contacts__time">
+                        <h2>Время работы</h2>
+                        <p>Пн.-Пт.: с 10:00 до 18:00</p>
+                    </div>
+                    <div class="contacts__map">
+                        <h2>Как нас найти</h2>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4273.728833206455!2d30.519172458000455!3d50.437852714413744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cefbb3f8407b%3A0x5bf2348764ce2c0f!2z0J3QsNGG0LjQvtC90LDQu9GM0L3Ri9C5INGD0L3QuNCy0LXRgNGB0LjRgtC10YIg0L_QuNGJ0LXQstGL0YUg0YLQtdGF0L3QvtC70L7Qs9C40Lk!5e0!3m2!1sru!2sua!4v1625418971151!5m2!1sru!2sua"
+                                width="100%" height="390" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+
+                <div class="contacts__feedback">
+                    <h2>Обратная связь</h2>
+                    <form class="contacts__form" action="feedback.php" method="post">
+
+                        <div class="contacts__item">
+                            <label>Ваше имя</label>
+                            <input name="name" type="text" placeholder="Введите имя" autofocus="">
+                        </div>
+                        <div class="contacts__item">
+                            <label>Контактный телефон</label>
+                            <input name="phone" type="tel" pattern="380-[0-9]{5}-[0-9]{4}"
+                                   placeholder="Ваш телефон в формате 380-XXXXX-XXXX">
+                        </div>
+
+                        <div class="contacts__item">
+                            <label>Email</label>
+                            <input name="email" type="email" placeholder="Ваш e-mail">
+                        </div>
+                        <div class="contacts__item"><label>Вопрос</label>
+                            <textarea class="contacts__form-textarea" name="question" id="text-field" cols="40" rows="7"
+                                      placeholder="Задайте нам свой вопрос"></textarea>
+                        </div>
+
+                        <button type="submit">Отправить</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</main>
+<footer class="footer mix-bg">
+    <div class="footer__copyright content-bg">© George Yakhontov</div>
+</footer>
+</body>
+
+</html>

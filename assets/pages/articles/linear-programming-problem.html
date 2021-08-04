@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>linear-programming-problem</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../fonts/stylesheet.css">
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+<header class="header">
+    <div class="header__container">
+        <div class="header__logo"><span class="header__logo-overflow">MY</span>SITE</div>
+        <nav class="header__navbar">
+            <ul class="header__navbar-list">
+                <li class="header__navbar-item">
+                    <a href="../../../index.html" class="header__navbar-link">ГЛАВНАЯ</a>
+                </li>
+                <li class="header__navbar-item">
+                    <a href="../articles.html" class="header__navbar-link header__navbar-link--active">СТАТЬИ</a>
+                </li>
+                <li class="header__navbar-item">
+                    <a href="../catalog.html" class="header__navbar-link">КАТАЛОГ</a>
+                </li>
+                <li class="header__navbar-item">
+                    <a href="../gallery.html" class="header__navbar-link">ГАЛЕРЕЯ</a>
+                </li>
+                <li class="header__navbar-item">
+                    <a href="../registration.html" class="header__navbar-link">РЕГИСТРАЦИЯ</a>
+                </li>
+                <li class="header__navbar-item">
+                    <a href="../contacts.html" class="header__navbar-link">КОНТАКТЫ</a>
+                </li>
+                <li class="header__navbar-item">
+                    <a href="../page-nav.html" class="header__navbar-link">НАВИГАЦИЯ</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+</header>
+<main class="main">
+    <div class="h1__bg mix-bg">
+        <h1 class="h1 content-bg">Двойственная задача линейного программирования</h1>
+    </div>
+    <div class="container">
+        <div class="tm-article-snippet__hubs"><span class="tm-article-snippet__hubs-item"><a
+                href="/ru/hub/infosecurity/" class="tm-article-snippet__hubs-item-link"><span>Информационная
+                            безопасность</span></a></span><span class="tm-article-snippet__hubs-item"><a
+                href="/ru/hub/crypto/"
+                class="tm-article-snippet__hubs-item-link"><span>Криптография</span></a></span><span
+                class="tm-article-snippet__hubs-item"><a href="/ru/hub/algorithms/"
+                                                         class="tm-article-snippet__hubs-item-link"><span>Алгоритмы</span></a></span><span
+                class="tm-article-snippet__hubs-item"><a href="/ru/hub/maths/"
+                                                         class="tm-article-snippet__hubs-item-link"><span>Математика</span></a></span><span
+                class="tm-article-snippet__hubs-item"><a href="/ru/hub/popular_science/"
+                                                         class="tm-article-snippet__hubs-item-link"><span>Научно-популярное</span></a></span>
+        </div>
+        <figure class="full-width " style="overflow: hidden;"><img alt="habrastorage.org"
+                                                                   src="https://habrastorage.org/r/w1560/getpro/habr/upload_files/5fa/0b3/45b/5fa0b345b29a2d7a0a3f6fd5661d9ae1.jpg"
+                                                                   width="920" height="540"
+        >
+        </figure>
+
+        <div class="tm-article-body" lang="ru">
+            <div class="article-formatted-body article-formatted-body_version-2" id="post-content-body">
+                <div xmlns="http://www.w3.org/1999/xhtml">
+                    <p><span class="first-letter">О</span>бычно с задачей линейного программирования (ЗЛП) связана
+                        другая линейная задача, называемая
+                        двойственной. Обе эти задачи можно считать двойственными одну по отношению к другой, считать
+                        равносильными.
+                        Первая задача называется обычно исходной, или прямой, другая - обратной. Переменные,
+                        используемые в двойственной
+                        задаче называются двойственными или множителями Лагранжа. На них не накладывается
+                        ограничений по знаку. Рассматриваются
+                        двойственные критерии оптимальности. Специальные случаи называют симметричными двойственными
+                        задачами линейного программирования.
+                        Связь между оптимальными решениями двойственных задач устанавливается теоремой
+                        двойственности. </p>
+                    <h3>Теорема двойственности</h3>
+                    <p><span class="first-letter"></span>ажнейшие свойства пары двойственных задач математического
+                        программирования сформулированы в
+                        трех основных теоремах. </p>
+                    <p><strong>Теорема двойственности</strong></p>
+                    <p>Допустимый вектор решения прямой задачи программирования оптимален тогда и только тогда,
+                        когда существует такой допустимый вектор решения двойственной задачи, что целевые функции
+                        прямой и двойственной задачи равны. Допустимый вектор двойственной задачи оптимален тогда и
+                        только тогда, когда существует допустимый вектор прямой задачи и целевые функции обеих задач
+                        равны.</p>
+                    <p><strong>Теорема существования решения</strong></p>
+                    <p>Если существуют допустимые векторы решений прямой и двойственной задач, то обе задачи имеют
+                        оптимальные векторы. Если одна из двух задач не имеет допустимого вектора, то ни одна из них
+                        не имеет оптимального вектора решения. </p>
+                    <p><strong>Теорема (принцип) дополняющей нежесткости </strong></p>
+                    <ol>
+                        <li>
+                            <p>Если <strong><em>(x<sub>Q </sub>, x<sub>L</sub>)</em></strong> – оптимальное решение
+                                прямой задачи, а <strong><em>(y<sub>Q</sub>, y<sub>L</sub>)</em></strong> – решение
+                                двойственной задачи, то <strong><em>(x<sub>Q </sub>, x<sub>L</sub>, y<sub>Q </sub>,
+                                    y<sub>L</sub>)</em></strong> – решение задачи Лагранжа. В частности, в этом
+                                случае удовлетворяются соотношения между переменными прямой и двойственной задач и
+                                условия дополняющей нежесткости. </p>
+                        </li>
+                        <li>
+                            <p>Оптимальное решение прямой задачи программирования получается только при одном
+                                значении <strong><em>x<sub>Q</sub></em></strong>. Это справедливо и для переменной
+                                <strong><em>y<sub>Q</sub></em></strong> в двойственной задаче.
+                            </p>
+                        </li>
+                    </ol>
+                    <p><strong>Теоремы двойственности </strong></p>
+                    <p>Основное неравенство двойственности. Для любых допустимых решений <strong><em>Х<sub>&lt;n&gt;
+                    </sub></em></strong>и <strong><em>Y<sub>&lt;n&gt;</sub></em></strong>пары
+                        двойственных ЗЛП имеет место неравенство </p>
+                    <figure class=""><img alt="habrastorage.org"
+                                          src="https://habrastorage.org/getpro/habr/upload_files/75a/c50/186/75ac50186b4e467a77139d77ade14bcd.PNG"
+                                          width="341" height="63">
+                        <figcaption></figcaption>
+                    </figure>
+                    <p>Экономически это означает, что для любого допустимого плана производства и любого
+                        дополнительного вектора оценок ресурсов (на складе) стоимость изготовленного продукта не
+                        превосходит оценки ресурсов. </p>
+                    <p><strong>Теорема существования (малая тероема двойственности) </strong></p>
+                    <p>Чтобы прямая и двойственная задачи имели <strong><em>opt </em></strong>решения,
+                        <em>необходимо</em><strong><em> </em></strong> и <em>достаточно</em>, чтобы существовали
+                        допустимые решения для каждой из них.
+                    </p>
+                    <p><strong>Теорема 1 двойственности.</strong></p>
+                    <p>Если одна из пары двойственных задач имеет opt решение, то и другая его имеет. Причем
+                        экспериментальные решения их целевых ф. равны; если же ЦФ одной из задач не ограничена, то
+                        система ограничений другой противоречива. Интерпретация: оптимальное использование ресурсов
+                        – opt план. Суммарная оценка ресурсов = оценке продукта полученного при
+                        <strong><em>opt</em></strong> плане. Любой другой план не рентабелен.
+                        <strong><em>C<sub>j</sub></em></strong> – стоимость единицы продукции (внешняя оценка)
+                        <strong><em>y<sub>i</sub></em></strong> – стоимость единицы ресурса (внутренняя оценка). Эти
+                        двойственные оценки выступают как инструменты балансирования затрат и результатов. Имеет
+                        место <strong><em>x<sub>j</sub> &ZeroWidthSpace;&lt;-&gt;</em>&ZeroWidthSpace;</strong>
+                        <strong><em>y<sub>m</sub> +<sub>j </sub></em></strong>; <strong><em>x<sub>n+i
+                        </sub>&lt;-&gt; y<sub>i</sub></em></strong><sub>.</sub>
+                    </p>
+                    <p><strong>Теорема 2 двойственности (о дополняющей нежесткости) </strong></p>
+                    <p>Для того, чтобы допустимые решения <strong><em>X</em></strong> и <strong><em>Y</em></strong>
+                        пары двойственных задач были оптимальными, необходимо и достаточно выполнить условия: </p>
+                    <figure class=""><img alt="habrastorage.org"
+                                          src="https://habrastorage.org/getpro/habr/upload_files/d10/554/a34/d10554a34a43fd2e360405ee10e8cefa.PNG"
+                                          width="196" height="131">
+                        <figcaption></figcaption>
+                    </figure>
+                    <p>То есть, если какое-либо ограничение одной ЗЛП обращается ее <strong><em>opt</em></strong>
+                        планом в строгое равенство, то соответствующая переменная двойственной задачи в ее
+                        <strong><em>opt</em></strong> плане равна нулю; если же какая-либо переменная
+                        <strong><em>opt</em></strong>-го решения одной ЗЛП положительна, то соответствующее
+                        ограничение в двойственной ЗЛП ее <strong><em>opt</em></strong> планом обращается в точное
+                        равенство.
+                    </p>
+                    <p><strong><u>Теорема Кёнига</u></strong> хорошо иллюстрирует использование принципа
+                        двойственности ЗЛП.</p>
+                    <p><u>Формулирование теоремы.</u> Максимальное число попарно неколлинеарных единиц любой булевой
+                        матрицы равно минимальному числу линий, покрывающих все единицы матрицы.</p>
+                    <p><u>Доказательство.</u> Для нахождения максимального числа попарно неколлинеарных единиц
+                        булевой матрицы достаточно сформулировать и решить линейную задачу:</p>
+                    <figure class=""><img alt="habrastorage.org"
+                                          src="https://habrastorage.org/getpro/habr/upload_files/719/797/b43/719797b43f03ad05e86d9a36993b98d5.PNG"
+                                          width="207" height="299">
+                        <figcaption></figcaption>
+                    </figure>
+                    <p>Минимальное число линий, покрывающих все единицы матрицы
+                        <strong>[<em>C<sub>ij</sub></em>]</strong>, найдем, решив линейную задачу:
+                    </p>
+                    <figure class="full-width "><img alt="habrastorage.org"
+                                                     src="https://habrastorage.org/getpro/habr/upload_files/a10/1ab/14f/a101ab14fb670e5dd3e1a195ba2a08b4.PNG"
+                                                     width="534" height="172">
+                        <figcaption></figcaption>
+                    </figure>
+                    <p>Оптимальному решению (<strong><em>u*<sub>i</sub>, </em>v<em>*<sub>j</sub></em></strong>)
+                        последней задачи отвечает минимальное покрытие, состоящее из множества строк
+                        <strong><em>I,</em></strong> для которых <strong><em>u*<sub>i </sub>= 1 </em></strong> и
+                        столбцов <strong><em>J</em></strong>, для которых <strong><em>u*<sub>j </sub>=1.
+                        </em></strong>
+                    </p>
+                    <p>Матрицы <strong><em>А </em></strong>и <strong><em>А<sup>Т</sup></em></strong> коэффициентов
+                        (*), (**), (***) являются абсолютно унимодулярными, как матрицы двудольного графа. Поэтому
+                        условия целочисленности переменных заменяем на условие их неотрицательности, и тогда
+                        получаем пару двойственных задач линейного программирования и согласно теореме
+                        двойственности имеем:</p>
+                    <figure class=""><img alt="habrastorage.org"
+                                          src="https://habrastorage.org/getpro/habr/upload_files/238/c69/695/238c69695be4617ab11f423bc45dfbe0.PNG"
+                                          width="273" height="74">
+                        <figcaption></figcaption>
+                    </figure>
+                    <p>Линией матрицы называется ее строка или столбец. Два элемента матрицы называются
+                        неколлинеарными, если они не лежат на одной линии.</p>
+                    <p>Матрица называется абсолютно унимодулярной, если все ее ненулевые миноры равны
+                        <strong><em>1</em></strong>, либо <strong><em>-1</em></strong>.
+                    </p>
+                    <p><em>Следствие.</em> Матрица инциденций неориентированного графа <strong><em>G</em></strong>
+                        абсолютно унимодулярна тогда и только тогда, когда <strong><em>G</em></strong> – двудольный
+                        граф. В двудольном графе все простые циклы имеют четкую длину<strong> </strong></p>
+                    <p><strong>Принцип двойственности в задачах линейного программирования.</strong></p>
+                    <p>Предположим, что руководство предприятия из анализа конъюнктуры рынка продукции приняли
+                        решение: производство сократить, а от запасов сырья избавиться, (продать на рынке) и при
+                        этом не нанести себе убытков.</p>
+                    <p>С этой целью руководство должно назначить стоимости <strong><em>y<sub>i</sub></em></strong>
+                        за единицу сырья вида <strong><em>S<sub>i</sub></em></strong>, стремясь при этом
+                        минимизировать общую стоимость сырья (чтобы быстрее продать сырье): <strong><em>Ф =
+                            Σ<sup>4</sup><sub>i=1</sub></em></strong>
+                        <strong><em>b<sub>i</sub>y<sub>i</sub></em></strong>
+                    </p>
+                    <p>Выручка предприятия от продажи сырья, расходуемого на единицу продукции
+                        <strong><em>П<sub>i</sub></em></strong>, составит:
+                        <strong><em>Σ<sup>4</sup><sub>i=1</sub></em></strong> <strong><em>a<sub>ij
+                        </sub>y<sub>i</sub></em></strong>
+                    </p>
+                    <p>И по условию она не должна быть меньше <strong><em>С<sub>j</sub></em></strong> (в противном
+                        случае предприятию выгоднее не продавать сырье, а использовать его для нужд производства,
+                        выпуска продукции).</p>
+                    <p>Сформулируем исходную и двойственную задачи:</p>
+                    <figure class="full-width "><img alt="habrastorage.org"
+                                                     src="https://habrastorage.org/getpro/habr/upload_files/496/3f1/127/4963f1127137cd0be1df55be014857d8.PNG"
+                                                     width="808" height="425">
+                        <figcaption></figcaption>
+                    </figure>
+                    <p>Обе задачи по отношению друг к другу называются двойственными или сопряженными. Анализ
+                        таблицы позволяет сделать выводы:</p>
+                    <ol>
+                        <li>
+                            <p>Если первая задача сформулирована на поиск максимума, то вторая формулируется на
+                                поиск минимума линейной функции.</p>
+                        </li>
+                        <li>
+                            <p>Коэффициенты ЦФ первой задачи являются свободными членами системы ограничений второй.
+                            </p>
+                        </li>
+                        <li>
+                            <p>Свободные члены системы ограничений первой задачи являются коэффициентами линейной
+                                системы во второй задаче.</p>
+                        </li>
+                        <li>
+                            <p>Матрица коэффициентов второй задачи является транспонированной к матрице
+                                коэффициентов ограничений первой задачи.</p>
+                        </li>
+                        <li>
+                            <p>Знаки неравенств в ограничениях второй задачи противоположны знакам неравенств в
+                                ограничениях первой задачи.</p>
+                        </li>
+                    </ol>
+                    <p>Оптимальный план <strong><em>X<sup>opt</sup><sub>&lt;n&gt; </sub></em></strong>одной из задач
+                        тесно связан с оптимальным планом <strong><em>Y<sup>opt</sup><sub>&lt;n&gt;
+                        </sub></em></strong> другой. Если одна из задач имеет решение, то другая также
+                        разрешена, причем для оптимальных клонов <strong><em>X<sup>opt</sup><sub>&lt;n&gt;</sub>
+                            =&lt;x<sub>1</sub>, x<sub>2</sub>,...x<sub>n</sub>&gt;</em></strong> и
+                        <strong><em>Y<sup>opt</sup><sub>&lt;m&gt;</sub> =&lt;y<sub>1</sub>,
+                            y<sub>2</sub>,...y<sub>m</sub>&gt;</em></strong> справедливо равенство
+                        <strong><em>Q</em></strong>( <strong><em>X<sup>opt</sup></em></strong> )
+                        =<strong><em>Q'</em></strong>( <strong><em>Y<sup>opt</sup></em></strong> ). Если линейная
+                        форма одной из задач неограниченна, то условия другой задачи несовместны. Если
+                        <strong><em>A<sup>-1</sup></em></strong> обратная матрица к матрице
+                        <strong><em>В</em></strong>, состоящей из векторов базиса оптимального плана исходной
+                        задачи, то оптимальный план двойственной задачи равен
+                        <strong><em>Y<sup>opt</sup><sub>&lt;m&gt;</sub> =СВ <sup>-1</sup>,</em></strong> здесь
+                        <strong><em>С</em></strong> – вектор базисных переменных. Решение двойственной задачи
+                        получается в последней симплексной таблице исходной задачи, в
+                        <strong><em>(m+1)</em></strong> строке, в столбцах, соответствующих дополнительным
+                        параметрам.
+                    </p>
+                    <p>Для того чтобы векторы <strong><em>X<sup>opt</sup><sub>&lt;n&gt;</sub> =&lt;x<sub>1</sub>,
+                        x<sub>2</sub>,...x<sub>n</sub>&gt;</em></strong> и
+                        <strong><em>Y<sup>opt</sup><sub>&lt;m&gt;</sub> =&lt;y<sub>1</sub>,
+                            y<sub>2</sub>,...y<sub>m</sub>&gt;</em></strong> были решениями пары задач,
+                        необходимо и достаточно, чтобы их компоненты удовлетворяли следующим условиям:
+                    </p>
+                    <figure class=""><img alt="habrastorage.org"
+                                          src="https://habrastorage.org/getpro/habr/upload_files/373/9ba/1ef/3739ba1ef1558d7dd82d69e3d5e32bc5.PNG"
+                                          width="291" height="121">
+                        <figcaption></figcaption>
+                    </figure>
+                    <p>Эти условия называют принципом дополняющей нежесткости. Если исходная (прямая) задача задана
+                        в канонической форме, то двойственная к ней называется несимметричной. Для несимметричной
+                        двойственной задачи соблюдается условие <strong><em>y<sub>i </sub>≥ 0</em></strong>.</p>
+                    <p>Теория ЗЛП доказывает, что компоненты оптимальных планов взаимно двойственных задач,
+                        приведенных к каноническому виду, соответствуют одни другим. То есть базисные переменные
+                        основной задачи соответствуют свободным переменным двойственной задачи и наоборот,
+                        <strong><em>j = 1(1)n, x*<sub>j</sub> &ZeroWidthSpace; y*<sub>m</sub> <sub>+j
+                        </sub></em></strong>; <strong><em>x*<sub>n+i</sub> &ZeroWidthSpace;
+                            y*<sub>i</sub></em></strong> ; <strong><em>i = 1(1)m.</em></strong>
+                    </p>
+                    <figure class="full-width "><img alt="habrastorage.org"
+                                                     src="https://habrastorage.org/getpro/habr/upload_files/9ee/e18/fe7/9eee18fe7d0216f232a3da949f2afe7f.PNG"
+                                                     width="744" height="224">
+                        <figcaption></figcaption>
+                    </figure>
+                    <p>Размерности в табличке<strong><em> m</em></strong> и <strong><em>n</em></strong> берутся в
+                        задаче для <strong><em>y</em></strong>-ков записанной в канонической форме.</p>
+                    <p><strong>Пример. Двойственный симплекс метод. </strong></p>
+                    <p><strong>Исходная задача</strong>. Имеется три вида продуктов
+                        <strong><em>П<sub>j</sub></em></strong>, причем единица веса каждого из видов продуктов
+                        содержит <strong><em>a<sub>ij</sub></em></strong> единиц (питательных веществ). Для
+                        нормальной жизнедеятельности человек должен потреблять не менее<strong><em>
+                            b<sub>i</sub></em></strong> единиц вещества <strong><em>B<sub>i</sub>
+                        </em></strong>в сутки. Стоимость единицы продукта <strong><em>П<sub>j</sub>
+                        </em></strong>равняется <strong><em>C<sub>j</sub>. </em></strong>Требуется составить
+                        оптимальный суточный рацион питания, т.е. найти количество
+                        <strong><em>x<sub>j</sub></em></strong> продукта, которое должен потреблять человек, чтобы
+                        стоимость питания была бы минимальной, если известно, что
+                    </p>
+                    <figure class="full-width "><img alt="habrastorage.org"
+                                                     src="https://habrastorage.org/getpro/habr/upload_files/048/c13/b7f/048c13b7f7f51a12e8452fa71b2405e4.PNG"
+                                                     width="733" height="204">
+                        <figcaption></figcaption>
+                    </figure>
+                    <p>такие значения его компонентов <strong><em>x<sub>j</sub></em></strong>, <strong><em>j =
+                        1(1)3</em></strong>, которые минимизируют целевую функцию (Ц) <strong><em>Q =
+                        3x<sub>1 </sub>+ 2x<sub>2 </sub>+ x<sub>3</sub> </em></strong>и удовлетворяют
+                        ограничениям неравенствам </p>
+                    <p><strong><em>0,3x<sub>1 </sub>+ 0,2x<sub>2 </sub>+ 0, 4x<sub>3 </sub>≥ 0,2;</em></strong></p>
+                    <p><strong><em>0,4x<sub>1 </sub>+ 0,3x<sub>2 </sub>+ 0,45x<sub>3 </sub>≥ 0,5;</em></strong></p>
+                    <p><strong><em>0,2x<sub>1 </sub>+ 0,3x<sub>2 </sub>+ 0, 1 x<sub>3 </sub>≥ 0,6; </em></strong>
+                    </p>
+                    <p><strong><em>0,1x<sub>1 </sub>+ 0,2x<sub>2 </sub>+ 0,05x<sub>3 </sub>≥ 0,1; </em></strong></p>
+                    <p><strong><em>x<sub>j</sub> </em></strong>≥<strong><em> 0;<sub> </sub>j = 1(1)3 =
+                        n</em></strong></p>
+                    <p><br>Для приведения задачи к каноническому виду <em>введем дополнительные переменные</em>
+                        <strong><em>x<sub>4</sub>, x<sub>5</sub>, x<sub>6</sub>, x<sub>7</sub>,
+                        </em></strong>переменных стало больше чем уравнений <strong><em>n – m = 7 – 4 =
+                            3</em></strong>, следовательно, части из них (трем любым,) для получения решения
+                        можно задать произвольные значения (задают, как правило, нулевые значения), возникает число
+                        сочетаний из <strong><em>n</em></strong> по <strong><em>m</em></strong> вариантов. Система
+                        ограничений примет вид равенств
+                    </p>
+                    <p><strong><em>0,3x<sub>1 </sub>+ 0,2x<sub>2 </sub>+ 0,4x<sub>3 </sub>– x<sub>4 </sub>=
+                        0,2;</em></strong></p>
+                    <p><strong><em>0,4x<sub>1 </sub>+ 0,3x<sub>2 </sub>+ 0,45x<sub>3 </sub>– x<sub>5 </sub>=
+                        0,5;</em></strong></p>
+                    <p><strong><em>0,2x<sub>1 </sub>+ 0,3x<sub>2 </sub>+ 0,1x<sub>3 </sub>– x<sub>6 </sub>= 0, 6;
+                    </em></strong></p>
+                    <p><strong><em>0,1x<sub>1 </sub>+ 0,2x<sub>2 </sub>+ 0,05x<sub>3 </sub>– x<sub>7 </sub>= 0, 1;
+                    </em></strong></p>
+                    <p><strong><em>x<sub>j</sub> </em></strong>≥<strong><em> 0;</em></strong><em> </em><strong><em>j
+                        = 1(1)3 = n, i = 1(1)4 = m. </em></strong></p>
+                    <p><em>Назначаем опорный план</em>. Выбор в качестве базисных переменных
+                        <strong><em>x<sub>4</sub>, x<sub>5</sub>, x<sub>6</sub>, x<sub>7</sub></em></strong>
+                        приводит к недопустимому опорному плану. Так как знаки левой и правой частей различны.
+                        (Свободные переменные <strong><em>x<sub>1</sub> = x<sub>2</sub> = x<sub>3 </sub>=
+                            0</em></strong>) Метод искусственного базиса приводит к увеличению числа неизвестных
+                        задач, что нежелательно. Анализ задачи показывает, что число уравнений в системе ограничений
+                        больше числа переменных. Поэтому попытаемся применить принцип двойственности, т.е. вначале
+                        решим двойственную ЗЛП, а затем найдем решение исходной.
+                    </p>
+                    <p><strong>Двойственная задача.</strong> Коэффициентами линейной формы в двойственной задаче
+                        выступают правые части <strong><em>b<sub>i</sub></em></strong> , <strong><em>i = 1(1)4 =
+                            m,</em></strong> исходной основной задачи. Переменные получают другие имена
+                        <strong><em>y<sub>1</sub>, y<sub>2</sub>, y<sub>3</sub>, y<sub>4</sub></em></strong>, и
+                        формулируется двойственная задача иначе. Найти максимум линейной формы <strong><em>Q':
+                        </em></strong>
+                    </p>
+                    <p><strong><em>Q'=0,2y<sub>1 </sub>+ 0,5y<sub>2 </sub>+ 0,6y<sub>3 </sub>+
+                        0,1y</em><sub>4</sub><em>; </em></strong></p>
+                    <p>при ограничениях</p>
+                    <p><strong><em>0,3y<sub>1 </sub>+ 0, 4y<sub>2 </sub>+ 0,2y<sub>3 </sub>+ 0,1y<sub>4 </sub>≤ 3;
+                    </em></strong></p>
+                    <p><strong><em>0,2y<sub>1 </sub>+ 0, 3y<sub>2 </sub>+ 0,3y<sub>3 </sub>+ 0,2y<sub>4 </sub>≤ 2;
+                    </em></strong></p>
+                    <p><strong><em>0,4y<sub>1 </sub>+ 0,45y<sub>2 </sub>+ 0,1y<sub>3 </sub>+ 0,05y<sub>4 </sub>≤ 1;
+                    </em></strong></p>
+                    <p><strong><em>y<sub>i</sub> </em></strong>≥<strong><em> 0;</em></strong> <strong><em>i = 1(1)4.
+                    </em></strong></p>
+                    <p>Приведем задачу к каноническому виду, вводим дополнительные неотрицательные переменные
+                        <strong><em>y<sub>5 </sub>, y<sub>6</sub> , y<sub>7 </sub></em></strong>:
+                    </p>
+                    <p>Найти минимум ЦФ (знаки у коэффициентов ЦФ поменяли на противоположные): <strong><em>Q'= -
+                        0,2y<sub>1 </sub>- 0,5y<sub>2 </sub>- 0, 6y<sub>3 </sub>-
+                        0,1y</em><sub>4</sub><em>;</em></strong></p>
+                    <p>при ограничениях (в ограничения добавили новые переменные):</p>
+                    <p><strong><em> 0,3y<sub>1 </sub>+ 0, 4y<sub>2 </sub>+ 0,2y<sub>3 </sub>+ 0, 1y<sub>4 </sub>+
+                        y<sub>5 </sub>= 3; </em></strong></p>
+                    <p><strong><em> 0,2y<sub>1 </sub>+ 0, 3y<sub>2 </sub>+ 0,3y<sub>3 </sub>+ 0, 2y<sub>4 </sub>+
+                        y<sub>6 </sub>= 2;</em></strong></p>
+                    <p><strong><em> 0,4y<sub>1 </sub>+ 0,45y<sub>2 </sub>+ 0,1y<sub>3 </sub>+ 0,05y<sub>4 </sub>+
+                        y<sub>7 </sub>= 1, </em></strong></p>
+                    <p><strong><em>y<sub>i</sub> </em></strong>≥<strong><em> 0;</em></strong> <strong><em>i =
+                        1(1)7.</em></strong></p>
+                    <p>Задача решается симплекс методом. Исходный опорный план в качестве переменных может иметь
+                        <strong><em>y<sub>5</sub>, y<sub>6</sub>, y<sub>7</sub></em></strong> и свободные переменные
+                        <strong><em>y<sub>1 </sub>= y<sub>2 </sub>= y<sub>3 </sub>= y<sub>4 </sub>= 0</em></strong>,
+                        т.е. <strong><em>Y<sub>&lt;7&gt;</sub> =</em></strong> [<strong><em>0, 0, 0, 0, 3, 2,
+                            1</em></strong>] .
+                    </p>
+                    <figure class="full-width "><img alt="habrastorage.org"
+                                                     src="https://habrastorage.org/getpro/habr/upload_files/5fb/024/e63/5fb024e639b9062b0d95bf72329512b4.PNG"
+                                                     width="814" height="160">
+                        <figcaption></figcaption>
+                    </figure>
+                    <p>Базисные переменные <strong><em>y<sub>5</sub>, y<sub>6</sub>, y<sub>7 </sub></em></strong>и
+                        ЦФ выражаем через свободные переменные, т.е. из свободных членов (правых частей,
+                        обозначенных <strong><em>γ<sub>i </sub></em></strong>) вычитаем левые части ограничений </p>
+                    <p><strong><em>y<sub>5 </sub>= 3 – (0,3y<sub>1 </sub>+ 0,4y<sub>2 </sub>+ 0,2y<sub>3 </sub>+
+                        0,1y<sub>4</sub>); </em></strong></p>
+                    <p><strong><em>y<sub>6 </sub>= 2 – (0,2y<sub>1 </sub>+ 0,3y<sub>2 </sub>+ 0,3y<sub>3 </sub>+
+                        0,2y<sub>4</sub>); </em></strong></p>
+                    <p><strong><em>y<sub>7 </sub>= 1 – (0,4y<sub>1 </sub>+ 0,45y<sub>2 </sub>+ 0,1y<sub>3 </sub>+
+                        0,05y<sub>6</sub>);</em></strong></p>
+                    <p><strong><em>Q'<sub>1</sub>=</em>γ<sub>0</sub><em> - Σ<sup>4</sup><sub>i=1</sub></em></strong>
+                        <strong>γ<em><sub>i </sub>y<sub>i </sub>= 0 -(0,2y<sub>1 </sub>+ 0,5y<sub>2 </sub>+ 0,
+                            6y<sub>3 </sub>+ 0,1y</em><sub>4</sub><em>);</em></strong>
+                    </p>
+                    <p><strong>γ<sub>0</sub><em><sub> </sub>=0,</em></strong> так как ЦФ не содержит свободного
+                        члена.</p>
+                    <p>и строим симплекс таблицу с двумя полуклетками. Направляющий столбец
+                        <strong><em>y<sub>3</sub>, </em></strong>направляющая строка
+                        <strong><em>y<sub>6</sub></em></strong>.
+                    </p>
+                    <figure class="full-width "><img alt="habrastorage.org"
+                                                     src="https://habrastorage.org/getpro/habr/upload_files/0db/09c/d7c/0db09cd7ce8e9c86e8671ea496078f3b.PNG"
+                                                     width="766" height="290">
+                        <figcaption></figcaption>
+                    </figure>
+                    <p>Анализ таблицы показывает, что все коэффициенты ЦФ при свободных переменных положительны.
+                        Следовательно, план <strong><em>Y<sub>&lt;7&gt;</sub></em></strong> не является оптимальным,
+                        ЦФ можно уменьшить, увеличивая значения соответствующих свободных переменных. </p>
+                    <p>Находим <strong>γ = max{γ<sub>i</sub>} =max {0,2; 0,5; 0,6; 0,1} = 0,6. </strong>Переменную
+                        <strong><em>y<sub>3</sub></em></strong> надо ввести в базис. После этого устанавливаем,
+                        существует ли оптимальный план. В направляющем столбце все коэффициенты положительны,
+                        следовательно, оптимальный план существует. В базисе есть переменные, которые можно
+                        уменьшать до нуля увеличивая значения <strong><em>y<sub>3</sub></em></strong>,<sub>
+                        </sub>тем самым минимизируя ЦФ. Раньше других в нуль обратиться переменная
+                        <strong><em>y<sub>6</sub></em></strong> и ее исключаем из базиса.
+                    </p>
+                    <figure class="full-width "><img alt="habrastorage.org"
+                                                     src="https://habrastorage.org/getpro/habr/upload_files/588/5b2/5a9/5885b25a97639b0a55df4526da3cb004.PNG"
+                                                     width="593" height="77">
+                        <figcaption></figcaption>
+                    </figure>
+                    <p>После замены переменных в базисе переходим к новой симплексной таблице. </p>
+                    <figure class="full-width "><img alt="habrastorage.org"
+                                                     src="https://habrastorage.org/getpro/habr/upload_files/127/18b/260/12718b260f1a2e5b92b979da21c3b1a1.PNG"
+                                                     width="810" height="163">
+                        <figcaption></figcaption>
+                    </figure>
+                    <p>Анализ этой таблицы показывает, что все коэффициенты в выражении ЦФ свободных переменных
+                        отрицательны. Следовательно, опорный план <strong><em>Y<sub>&lt;7&gt;</sub></em></strong>=
+                        [<strong><em>0, 0, 20/3, 0, 5/3, 0, 1/3</em></strong>] является оптимальным. ЦФ при этом
+                        <strong><em>Q'<sub>1 </sub></em>= - <em>4</em></strong> достигла наименьшего значения.
+                        Возвращаемся к двойственной задаче. Используя соответствие между оптимальными планами
+                        двойственных задач ЛП, определяем: базисными переменными в оптимальном плане будут
+                        <strong><em>x<sub>2</sub> x<sub>4</sub> x<sub>5</sub> x<sub>7</sub></em></strong>; их
+                        значения с противоположным знаком записаны в последней строке таблицы. Таким образом,
+                        <strong><em>X<sup>opt</sup><sub>&lt;n&gt;</sub> =&lt;0; 2; 0; 0; 2; 0; 1; 0;
+                            1/30&gt;</em></strong>, т.е. оптимальный рацион из двух единиц продукта
+                        <strong><em>П<sub>2</sub></em></strong>. Стоимость такого рациона минимальна и составляет 4
+                        единицы. Это значение с противоположным знаком записано в той же таблице.
+                    </p>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="page-content__comments" id="comments">
+            <div class="page-content__comments-title">Комментарии</div>
+            <div class="page-content__comments-body">
+
+                <div class="page-content__comments-item">
+                    <div class="page-content__comments-author"><a href="#">James Bond</a></div>
+                    <div class="page-content__comments-content">
+                        <div class="page-content__comments-avatar">
+                            <img class="page-content__comments-image"
+                                 src="https://images.unsplash.com/photo-1501325087108-ae3ee3fad52f?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=f7f448c2a70154ef85786cf3e4581e4b"
+                                 alt="avatar">
+                        </div>
+                        <p class="page-content__comments-message">Тут ещё проблема, что, возможнго, многие описания
+                            пишутся на китайском и машинно переводятся на английский. То есть попытка изучить английское
+                            описание не очень спасает... один раз даже выиграл спор по этому поводу - когда вместо двух
+                            компьютерных корпусов прислали две крышки для компьютерных корпусов</p>
+                    </div>
+                    <div class="page-content__comments-controls">
+                        <a href="#">Ответить</a>
+
+                    </div>
+                </div>
+
+
+                <div class="page-content__comments-item">
+                    <div class="page-content__comments-author"><a href="#">alexpp</a></div>
+                    <div class="page-content__comments-content">
+                        <div class="page-content__comments-avatar">
+                            <img class="page-content__comments-image"
+                                 src="https://uifaces.co/our-content/donated/AW-rdWlG.jpg" alt="avatar">
+                        </div>
+                        <p class="page-content__comments-message">Планируете ли бороться с продавцами, кто в
+                            карточке товара держит две позиции с разной ценой: хлам за 1 копейку, и сам товар за
+                            1000р? А в поиске эта карточка оказывается в топе при сортировке по цене.
+                            Вообще, планируется ли какая-то борьба с такими повсеместными случаями?</p>
+                    </div>
+                    <div class="page-content__comments-controls">
+                        <a href="#">Ответить</a>
+
+                    </div>
+                </div>
+
+                <div class="page-content__comments-item">
+                    <div class="page-content__comments-author"><a href="#">Jhon Snow</a></div>
+                    <div class="page-content__comments-content">
+                        <div class="page-content__comments-avatar">
+                            <img class="page-content__comments-image"
+                                 src="https://uifaces.co/our-content/donated/6f6p85he.jpg" alt="avatar">
+                        </div>
+                        <p class="page-content__comments-message">Дайте пожалуйста пользователям возможность один раз
+                            выбрать английский язык и больше никогда не видеть перевод.</p>
+                    </div>
+                    <div class="page-content__comments-controls">
+                        <a href="#">Ответить</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+<footer class="footer mix-bg">
+    <div class="footer__copyright content-bg">© George Yakhontov</div>
+</footer>
+</body>
+
+</html>

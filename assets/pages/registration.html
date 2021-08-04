@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../fonts/stylesheet.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__container">
+            <div class="header__logo"><span class="header__logo-overflow">MY</span>SITE</div>
+            <nav class="header__navbar">
+                <ul class="header__navbar-list">
+                    <li class="header__navbar-item">
+                        <a href="../../index.html" class="header__navbar-link">ГЛАВНАЯ</a>
+                    </li>
+                    <li class="header__navbar-item">
+                        <a href="articles.html" class="header__navbar-link">СТАТЬИ</a>
+                    </li>
+                    <li class="header__navbar-item">
+                        <a href="catalog.html" class="header__navbar-link">КАТАЛОГ</a>
+                    </li>
+                    <li class="header__navbar-item">
+                        <a href="gallery.html" class="header__navbar-link">ГАЛЕРЕЯ</a>
+                    </li>
+                    <li class="header__navbar-item">
+                        <a href="registration.html"
+                            class="header__navbar-link header__navbar-link--active">РЕГИСТРАЦИЯ</a>
+                    </li>
+                    <li class="header__navbar-item">
+                        <a href="contacts.html" class="header__navbar-link">КОНТАКТЫ</a>
+                    </li>
+                    <li class="header__navbar-item">
+                        <a href="page-nav.html" class="header__navbar-link">НАВИГАЦИЯ</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+    </header>
+    <main class="main">
+        <div class="h1-container h1-container--bg">
+            <h1 class="h1-container__text h1-container__text--bg">РЕГИСТРАЦИЯ</h1>
+        </div>
+        <div class="registration container">
+            <form action="register.php" method="post">
+                <fieldset>
+                    <h3>#1 Базовые поля ввода</h3>
+                    <label>Логин: <input required="" name="login" value="userName" minlength="3" maxlength="10"
+                            placeholder="Введите логин" type="text"></label>
+                    <label>ФИО<input required="" class="full-name" name="person-info" placeholder="Фамилия Имя Отчество"
+                            minlength="15" maxlength="30" type="text"></label>
+                    <label>Пароль: <input name="passw" minlength="5" maxlength="10" placeholder="Пароль"
+                            type="password"></label>
+                    <label>Возраст: <input name="age" min="1" max="122" value="25" placeholder="Возраст"
+                            type="number"></label>
+                    <label>Имейл: <input name="email" placeholder="Имейл" type="email"></label>
+                    <label>Поиск: <input name="search" placeholder="Поиск" type="search"></label>
+                    <label>Телефон: <input name="phone" placeholder="Телефон" type="tel"></label>
+                    <label>Год рождения: <input name="date" type="date"></label>
+                    <label>Дата поступления в вуз: <input name="month" type="month"></label>
+                    <label>Ваша аватарка: <input name="file" type="file"></label>
+                    <label class="hidden">Проверка на человечность: <input name="hidden" type="hidden"></label>
+                </fieldset>
+
+                <fieldset class="radio">
+                    <h3>#2 Единственный выбор</h3>
+                    <p>Выберите ваш пол:</p>
+                    <div class="form-group">
+                        <div class="form-group__radio">
+                            <input type="radio" name="size" id="small" class="form-group__input">
+                            <label class="form-group__label" for="small">
+                                <span class="form-group__button"></span> Мужской
+                            </label>
+                        </div>
+                        <br>
+                        <div class="form-group__radio">
+                            <input type="radio" name="size" id="large" class="form-group__input">
+                            <label class="form-group__label" for="large">
+                                <span class="form-group__button"></span> Женский
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+
+
+                <fieldset class="checkbox">
+                    <h3>#3 Множественный выбор</h3>
+                    <p>Выберите предпочитаемую кухню:</p>
+                    <div class="news-grid">
+                        <div class="card-group">
+                            <div class="card-group__item">
+                                <input class="custom" type="checkbox" id="check1" checked="">
+                                <label for="check1">
+                                    Украинская
+                                </label>
+                            </div>
+                            <div class="card-group__item">
+                                <input class="custom" type="checkbox" id="check2">
+                                <label for="check2">
+                                    Грузинская
+                                </label>
+                            </div>
+                        </div>
+                        <div class="card-group">
+                            <div class="card-group__item">
+                                <input class="custom" type="checkbox" id="check3">
+                                <label for="check3">
+                                    Итальянская
+                                </label>
+                            </div>
+                            <div class="card-group__item">
+                                <input class="custom" type="checkbox" id="check4">
+                                <label for="check4">
+                                    Французская
+                                </label>
+                            </div>
+                        </div>
+                        <div class="card-group">
+                            <div class="card-group__item">
+                                <input class="custom" type="checkbox" id="check5">
+                                <label for="check5">
+                                    Американская
+                                </label>
+                            </div>
+                            <div class="card-group__item">
+                                <input class="custom" type="checkbox" id="check6">
+                                <label for="check6">
+                                    Японская
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+
+                <fieldset>
+                    <h3>#4 Открывающийся список</h3>
+                    <label for="sel">Года выпуска авто:</label>
+                    <select name="sel" id="sel">
+                        <option selected="" disabled="" value="">Выбери год</option>
+                        <option value="2011">2011</option>
+                        <option value="2012">2012</option>
+                        <option value="2013">2013</option>
+                        <option value="2014">2014</option>
+                        <option value="2015">2015</option>
+                        <option value="2016">2016</option>
+                        <option value="2017">2017</option>
+                        <option value="2018">2018</option>
+                        <option value="2019">2019</option>
+                    </select>
+                </fieldset>
+
+                <fieldset>
+                    <h3>#5 Многострочный текст</h3>
+                    <label for="txt">Подробная информация о себе:</label>
+                    <textarea placeholder="Введите информацию о себе..." name="txt" id="txt" cols="20" rows="7"
+                        spellcheck="false"
+                        style="position: relative; background: none !important; line-height: normal;"></textarea>
+                </fieldset>
+
+                <fieldset>
+                    <h3>#6 Кнопки управления формой</h3>
+                    <div class="button-set">
+                        <button type="submit">Отправить</button>
+                        <button type="reset">Сбросить</button>
+
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+
+    </main>
+    <footer class="footer mix-bg">
+        <div class="footer__copyright content-bg">© George Yakhontov</div>
+    </footer>
+</body>
+
+</html>

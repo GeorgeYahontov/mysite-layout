@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6-functions-that-an-online-pharmacy-needs</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../fonts/stylesheet.css">
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+<header class="header">
+    <div class="header__container">
+        <div class="header__logo"><span class="header__logo-overflow">MY</span>SITE</div>
+        <nav class="header__navbar">
+            <ul class="header__navbar-list">
+                <li class="header__navbar-item">
+                    <a href="../../../index.html" class="header__navbar-link">ГЛАВНАЯ</a>
+                </li>
+                <li class="header__navbar-item">
+                    <a href="../articles.html" class="header__navbar-link header__navbar-link--active">СТАТЬИ</a>
+                </li>
+                <li class="header__navbar-item">
+                    <a href="../catalog.html" class="header__navbar-link">КАТАЛОГ</a>
+                </li>
+                <li class="header__navbar-item">
+                    <a href="../gallery.html" class="header__navbar-link">ГАЛЕРЕЯ</a>
+                </li>
+                <li class="header__navbar-item">
+                    <a href="../registration.html" class="header__navbar-link">РЕГИСТРАЦИЯ</a>
+                </li>
+                <li class="header__navbar-item">
+                    <a href="../contacts.html" class="header__navbar-link">КОНТАКТЫ</a>
+                </li>
+                <li class="header__navbar-item">
+                    <a href="../page-nav.html" class="header__navbar-link">НАВИГАЦИЯ</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+</header>
+<main class="main">
+    <div class="h1__bg mix-bg">
+        <h1 class="h1 content-bg">6 функций, которые нужны интернет-аптеке</h1>
+    </div>
+    <div class="container">
+        <div class="tm-article-snippet__hubs"><span class="tm-article-snippet__hubs-item"><a
+                href="/ru/hub/analysis_design/" class="tm-article-snippet__hubs-item-link"><span>Анализ и
+                            проектирование систем</span></a></span><span class="tm-article-snippet__hubs-item"><a
+                href="/ru/hub/it-infrastructure/"
+                class="tm-article-snippet__hubs-item-link"><span>IT-инфраструктура</span></a></span><span
+                class="tm-article-snippet__hubs-item"><a href="/ru/hub/pm/"
+                                                         class="tm-article-snippet__hubs-item-link"><span>Управление проектами</span></a></span><span
+                class="tm-article-snippet__hubs-item"><a href="/ru/hub/web_analytics/"
+                                                         class="tm-article-snippet__hubs-item-link"><span>Веб-аналитика</span></a></span><span
+                class="tm-article-snippet__hubs-item"><a href="/ru/hub/business_models/"
+                                                         class="tm-article-snippet__hubs-item-link"><span>Бизнес-модели</span></a></span>
+        </div>
+        <div>
+            <p><span class="first-letter">В</span> данной статье материал был собран летом 2020 года, отчасти информация
+                устарела. Но хотелось бы
+                поделиться собранным опытом. Автор текста: Анатолий Ерофеев.</p>
+            <h3>Введение</h3>
+            <p>Интернет-аптека — сложный технический проект. Для разработки и развития таких проектов требуется
+                большая квалификация и, что немаловажно, большая команда. Такой проект не отдать фрилансеру.</p>
+            <p>Мы пристально посмотрели на 7 крупных сайтов фарма-сферы и проанализировали, как они устроены внутри,
+                чем они отличаются друг от друга и от обычных интернет-магазинов.</p>
+            <h3>Особенности интернет-аптек</h3>
+            <p>Что же делает интернет-аптеку таким сложным проектом? Наш собственный опыт разработки и сопровождения
+                подсказывает, что дело в следующем (в сравнении со средним интернет-магазином):</p>
+            <ul>
+                <li>
+                    <p>в ~1000 раз больше товаров</p>
+                </li>
+                <li>
+                    <p>в ~100 раз больше пунктов самовывоза (аптек)</p>
+                </li>
+                <li>
+                    <p>в ~2 раза больше интеграций на сайте (и бог знает сколько в учетной системе)</p>
+                </li>
+                <li>
+                    <p>в ~2 раза больше серверов на 1 проект</p>
+                </li>
+                <li>
+                    <p>в ~10 раз выше требования к IQ поиска</p>
+                </li>
+                <li>
+                    <p>в ~24 раза чаще происходит обновление цен и остатков</p>
+                </li>
+            </ul>
+            <h4>Больше товаров</h4>
+            <p><span class="first-letter">В</span> интернет-магазине может быть 3 «уровня» каталога: категория
+                (например, «Микроскопы», товар
+                «Микроскоп Levenhuk Rainbow 50L PLUS» и конкретный SKU «Микроскоп Levenhuk Rainbow 50L PLUS Orange»
+                за 11 900 рублей, которых осталось 20 штук.</p>
+            <figure class="full-width "><img alt="Иерархия категории товара" title="Иерархия категории товара"
+                                             height="480"
+                                             data-src="https://habrastorage.org/getpro/habr/upload_files/fd0/7e6/5e1/fd07e65e13996c3b29e9ca49909e9906.png"
+                                             data-width="945"
+                                             src="https://habrastorage.org/r/w1560/getpro/habr/upload_files/fd0/7e6/5e1/fd07e65e13996c3b29e9ca49909e9906.png"
+                                             width="945">
+                <figcaption><span class="first-letter">И</span>ерархия категории товара</figcaption>
+            </figure>
+            <p>И эта иерархия отлично ложится на стандартную схему каталога в 1С-Битрикс: Управление сайтом: раздел
+                каталога, товар, SKU. Но когда речь заходит о лекарствах, вариаций одного товара становится слишком
+                много: отличаться может дозировка, форма выпуска, вкус и т.п. И нельзя забывать про различные
+                модификации: «форте», «ультра», «лайт», «для детей». Это создает уже 4-уровневый каталог: категория
+                (например, «От боли»), препарат («Нурофен»), товар («Нурофен экспресс форте 400мг 20 шт. капсулы»),
+                SKU (упаковка в аптеке).</p>
+            <figure class="full-width "><img alt="4-уровневый каталог" title="4-уровневый каталог" height="688"
+                                             data-src="https://habrastorage.org/getpro/habr/upload_files/4c4/76b/bde/4c476bbdebcbd889f50eb562b89cd574.png"
+                                             data-width="945"
+                                             src="https://habrastorage.org/r/w1560/getpro/habr/upload_files/4c4/76b/bde/4c476bbdebcbd889f50eb562b89cd574.png"
+                                             width="945">
+                <figcaption>4-уровневый каталог</figcaption>
+            </figure>
+            <p>Дополнительный уровень каталога и обширный перечень лекарств приводят к росту каталога — миллионы и
+                десятки миллионов позиций. Вдобавок, это несколько ломает стандартные «уровни» каталога в БУСе: SKU
+                остаются самими собой, а вот товары разделяются на два уровня. Иногда пользователь ищет препарат,
+                иногда именно товар. И эту проблему как-то нужно решать (обычно в каталоге отображаются именно
+                товары, а вот при поиске вылезают препараты).</p>
+            <h4>Больше пунктов самовывоза</h4>
+            <p><span class="first-letter">И</span>нтернет-магазины давно переложили проблемы доставки на ПЭК, СДЭК и
+                Почту России и почти не
+                занимаются этим сами.</p>
+            <p>Но с аптеками все сложнее из-за законодательства. До апреля 2020 года онлайн-торговля лекарствами
+                была запрещена и все, что можно сделать в интернет-аптеке: забронировать заказ и забрать
+                самостоятельно с оплатой при получении. Каждая физическая аптека — пункт самовывоза, информацию о
+                которой нужно хранить на сайте.</p>
+            <p>Сейчас правила изменились. Возможность оплаты и доставки постепенно появляется у всех крупных
+                игроков.</p>
+            <h4>Больше интеграций</h4>
+            <p><span class="first-letter">В</span>стречается 2 вида проектов: собственно, онлайн-аптека (представлен
+                ассортимент одной аптеки или
+                аптечной сети) и маркетплейс/агрегатор (представлен ассортимент нескольких аптечных сетей). Во
+                втором случае каждую новую аптечную сеть требуется интегрировать отдельно. В идеальном мире у
+                маркетплейса был бы единый API (или формат фида, как у Яндекс.Маркета), к которому подключались бы
+                все партнеры. Но чем крупнее и старше аптечная сеть, тем труднее ей подстроиться под нужды каждого
+                маркетплейса. Так что на практике чаще именно маркетплейс подстраивается под аптечную сеть,
+                импортируя их остатки и цены в удобном для них формате.</p>
+            <h4>Больше серверов</h4>
+            <p><span class="first-letter">П</span>рямое следствие большего объема данных. Один сервер не справится с
+                такой нагрузкой.</p>
+            <h4>Сложнее поиск</h4>
+            <p>Важность поиска на сайте аптеки гораздо выше, чем у других интернет-магазинов: ну кто будет выбирать
+                товар по классификатору, который на каждом сайте свой? Проще попытаться найти то, что написал в
+                рецепте врач. Про почерк врачей сложено немало анекдотов, но чтобы правильно прочитать название
+                какого-то антибиотика нужно чуть ли не медицинское образование. Названия сложные, много похожих. А
+                ведь часто люди рекомендуют друг другу препараты по телефону…</p>
+            <p>Две главных заповеди поиска на сайте интернет-аптеки: высокая скорость и умение прощать ошибки.</p>
+            <h4>Чаще обновляются цены</h4>
+            <p><span class="first-letter">Ц</span>ены на лекарства могут изменяться по десять раз на дню. Как только в
+                аптеке списали последнюю
+                упаковку из старой партии, на сайте нужно опубликовать цену на товары из следующей. И так происходит
+                постоянно, это почти непрерывный процесс, что усложняет кэширование данных. В то же время, без кэша
+                с таким объемом данных никуда. Стандартные решения 1С-Битрикс: Управления сайтом, да и вообще любой
+                CMS, тут не годятся, нужно разрабатывать что-то свое или принимать волевое решение «фиксировать цены
+                на сайте».</p>
+            <h3>Обзор интернет-аптек</h3>
+            <p><span class="first-letter">В</span>верим наши выводы с крупными проектами. Мы не принимали участия в
+                создании ни одного из этих
+                проектов, но занимаемся развитием одного из них. Беспристрастность гарантируем хотя бы потому, что
+                наша цель не определить лидеров, а понять, каким должен быть современный сайт интернет-аптеки или
+                маркетплейса лекарств.</p>
+            <h4>Кого сравниваем</h4>
+            <p>Мы выбрали 7 крупных проектов для сравнения:</p>
+            <ul>
+                <li>
+                    <p>apteka.ru</p>
+                </li>
+                <li>
+                    <p>asna.ru</p>
+                </li>
+                <li>
+                    <p>eapteka.ru</p>
+                </li>
+                <li>
+                    <p>piluli.ru</p>
+                </li>
+                <li>
+                    <p>proapteka.ru</p>
+                </li>
+                <li>
+                    <p>vseapteki.ru</p>
+                </li>
+                <li>
+                    <p>zdravcity.ru</p>
+                </li>
+            </ul>
+            <p>В самый разгар исследования сайт apteka.ru решил обновиться. В исследовании приведены результаты
+                старого сайта apteka.ru (новый, понятное дело, еще работает со странностями, и включать его в
+                сравнение не имеет смысла).</p>
+
+
+        </div>
+        <div class="page-content__comments" id="comments">
+            <div class="page-content__comments-title">Комментарии</div>
+            <div class="page-content__comments-body">
+
+                <div class="page-content__comments-item">
+                    <div class="page-content__comments-author"><a href="#">Максим</a></div>
+                    <div class="page-content__comments-content">
+                        <div class="page-content__comments-avatar">
+                            <img class="page-content__comments-image"
+                                 src="//habrastorage.org/r/w32/getpro/habr/avatars/20a/0ad/d8c/20a0add8ce3ddddec0e521f86e694f40.jpg"
+                                 alt="avatar">
+                        </div>
+                        <p class="page-content__comments-message">Скорее всего тема "приземления" касается только
+                            соцсетей, поисковиков и новостных порталов, то есть то, что может влиять на, осторожно
+                            скажем, широкие слои населения. Нишевые сайты, даже с большой посещаемостью регулятора, на
+                            мой взгляд не интересуют.</p>
+                    </div>
+                    <div class="page-content__comments-controls">
+                        <a href="#">Ответить</a>
+
+                    </div>
+                </div>
+
+
+                <div class="page-content__comments-item">
+                    <div class="page-content__comments-author"><a href="#">Дмитрий Карловский</a></div>
+                    <div class="page-content__comments-content">
+                        <div class="page-content__comments-avatar">
+                            <img class="page-content__comments-image"
+                                 src="//habrastorage.org/getpro/habr/avatars/165/b41/b11/165b41b114599baac51df8ac31bc575a.jpg"
+                                 alt="avatar">
+                        </div>
+                        <p class="page-content__comments-message">Конкуренция - двигатель любой отрасли. Можно спорить о
+                            линии Кармана, но то, что две космические компании идут ноздря в ноздрю радует. Вот и
+                            Starlink с OneWeb соревнуются, хотя конечно Старлинк намного впереди. Так что больше
+                            запусков, больше интернета, больше трафика. (Мы, только этому рады. Будет больше заказов на
+                            размещение оборудования в стойках в дата-центре в Тушино).</p>
+                    </div>
+                    <div class="page-content__comments-controls">
+                        <a href="#">Ответить</a>
+
+                    </div>
+                </div>
+
+                <div class="page-content__comments-item">
+                    <div class="page-content__comments-author"><a href="#">Марк Гальперин</a></div>
+                    <div class="page-content__comments-content">
+                        <div class="page-content__comments-avatar">
+                            <img class="page-content__comments-image"
+                                 src="https://assets.codepen.io/5820248/internal/avatars/users/default.png?fit=crop&format=auto&height=80&version=1614379000&width=80"
+                                 alt="avatar">
+                        </div>
+                        <p class="page-content__comments-message">Хороший обзор Степан, благодарю, будем пользоваться.
+                            Мы разрабатываем сайты для фармы, с вашего позволения украдем несколько идей.</p>
+                    </div>
+                    <div class="page-content__comments-controls">
+                        <a href="#">Ответить</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+<footer class="footer mix-bg">
+    <div class="footer__copyright content-bg">© George Yakhontov</div>
+</footer>
+</body>
+
+</html>
